@@ -1,0 +1,38 @@
+<h2>Mecanico</h2>
+<form #f="ngForm" (ngSubmit)="submit()">
+<div class="form-group well">
+    <label for="tipo">Tipo Documento *</label>
+    <select class="form-control" name="selectTipo" id="tipo" [(ngModel)]="mecanico.tipoDocumento">
+        <option value=" -- Select --"></option>
+        <option *ngFor="let doc of tipos" value="{{doc.value}}">{{doc.value}}</option>
+    </select>
+    <label for="">Documento *</label>
+    <input type="number"  class="form-control" name="documento" [(ngModel)]="mecanico.documento" required #documento="ngModel">
+    <div class="alert alert-danger" *ngIf="!documento.valid && documento.touched">Numero de documento invalido.</div>
+    <label for="">Primer Nombre *</label>
+    <input type="text" class="form-control" name="primerNombre" [(ngModel)]="mecanico.primerNombre" required #primerNombre="ngModel">
+    <div class="alert alert-danger" *ngIf="!primerNombre.valid && primerNombre.touched">Debe especificar al menos un nombre.</div>
+    <label for="">Segundo Nombre</label>
+    <input type="text" class="form-control" name="segundoNombre"  [(ngModel)]="mecanico.segundoNombre" >
+    <label for="">Primer Apellido *</label>
+    <input type="text" class="form-control" name="primerApellido"  [(ngModel)]="mecanico.primerApellido" required #primerApellido="ngModel">
+    <div class="alert alert-danger" *ngIf="!primerApellido.valid && primerApellido.touched">Debe especificar al menos un apellido.</div>
+    <label for="">Segundo Apellido</label>
+    <input type="text" class="form-control" name="segundoApellido"  [(ngModel)]="mecanico.segundoApellido" >
+    <label for="">Celular</label>
+    <input type="number" class="form-control" name="celular" [(ngModel)]="mecanico.celular" >
+    <label for="">Direccion</label>
+    <input type="text" class="form-control" name="direccion" [(ngModel)]="mecanico.direccion" >
+    <label for="">Email</label>
+    <input type="email" class="form-control" name="email" [(ngModel)]="mecanico.email" >
+    <label for="">Estado *</label>
+    <select class="form-control" name="selectTipo" id="tipo" name="estado" [(ngModel)]="mecanico.estado" required #estado="ngModel" >
+            <option value="A">Activo</option>
+            <option value="I">Inactivo</option>
+        </select>
+        <div class="alert alert-danger" *ngIf="!estado.valid && estado.touched">Debe especificar el estado del mecanico.</div>
+  </div>
+  <button [disabled]="!f.valid" class="btn btn-primary" type="submit">Guardar</button>
+  <button *ngIf="mecanico.documento" class="btn btn-danger" type="button" (click)="eliminarMecanico()">Eliminar</button>
+
+</form>

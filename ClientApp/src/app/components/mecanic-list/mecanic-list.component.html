@@ -1,0 +1,28 @@
+<h2>Mecanicos</h2>
+<a [routerLink]="['/mecanicos']" type="button" routerLinkActive="router-link-active" class="btn btn-primary" >Crear Mecanico</a>
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Tipo Documento</th>
+      <th>Documento</th>
+      <th>Nombres</th>
+      <th>Apellidos</th>
+      <th>Celular</th>
+      <th>Direccion</th>
+      <th>Email</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let m of mecanicos">
+      <td>{{m.tipoDocumento}}</td>
+      <td>{{m.documento}}</td>
+      <td>{{m.primerNombre}} {{m.segundoNombre}}</td>
+      <td>{{m.primerApellido}} {{m.segundoApellido}}</td>
+      <td>{{m.celular}}</td>
+      <td>{{m.direccion}}</td>
+      <td>{{m.email}}</td>
+      <td><a [routerLink]="['/mecanicos/',m.documento,m.tipoDocumento]">Detalles</a></td>
+    </tr>
+  </tbody>
+</table>

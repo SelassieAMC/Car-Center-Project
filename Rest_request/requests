@@ -1,0 +1,19 @@
+###
+POST https://localhost:5001/api/mecanicos
+content-type: application/json
+
+{
+  "tipoDocumento": "CC",
+  "documento": 1231,
+  "primerNombre": "asd",
+  "segundoNombre": "asd",
+  "primerApellido": "asd",
+  "segundoApellido": "asd",
+  "celular": 123,
+  "direccion": "asd",
+  "email": "asd",
+  "estado": "I"
+}
+
+###
+GET https://localhost:5001/api/mecanicos/getmecanico/1123123/CC
